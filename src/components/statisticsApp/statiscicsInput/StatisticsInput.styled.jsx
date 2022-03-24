@@ -15,15 +15,14 @@ export const StatisticsInputName = styled.h2`
   text-align: center;
 `;
 
-export const StatisticsInputList = styled.ul`
+export const StatisticsInputList = styled.div`
   display: flex;
   justify-content: space-evenly;
-  list-style: none;
   padding: 0;
   margin: 0;
 `;
 
-export const StatisticsInputItem = styled.button`
+export const StatisticsInputBtn = styled.button`
   padding: 10px 10px;
   border: 2px solid #9e9e9e;
   border-radius: 30%;

@@ -3,28 +3,21 @@ import {
   StatisticsInputList,
   StatisticsInputName,
   StatisticsInput,
-  StatisticsInputItem,
+  StatisticsInputBtn,
 } from './StatisticsInput.styled';
 
-const StatisticsInputSection = ({ goodAdd, neutralAdd, badAdd }) => (
+const StatisticsInputSection = ({ options, onLeaveFeedback }) => (
   <StatisticsInput>
     <StatisticsInputName>Please leave feedbaack</StatisticsInputName>
     <StatisticsInputList>
-      <li>
-        <StatisticsInputItem type="button" onClick={goodAdd}>
-          Good
-        </StatisticsInputItem>
-      </li>
-      <li>
-        <StatisticsInputItem type="button" onClick={neutralAdd}>
-          Neutral
-        </StatisticsInputItem>
-      </li>
-      <li>
-        <StatisticsInputItem type="button" onClick={badAdd}>
-          Bad
-        </StatisticsInputItem>
-      </li>
+      {options.map(item => (
+        <StatisticsInputBtn
+          type="button"
+          onClick={onLeaveFeedback(item.onLeaveFeedbackKey)}
+        >
+          {item.title}
+        </StatisticsInputBtn>
+      ))}
     </StatisticsInputList>
   </StatisticsInput>
 );

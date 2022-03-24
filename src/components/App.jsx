@@ -3,6 +3,21 @@ import StatisticsInputSection from './statisticsApp/statiscicsInput/StatisticsIn
 import StatisticsOutputSection from './statisticsApp/statiscicsOutput/StatiscicsOutput';
 import { Container, StatisticsTitle } from './App.styled';
 
+const options = [
+  {
+    title: 'Good',
+    onLeaveFeedbackKey: 'good',
+  },
+  {
+    title: 'Neutral',
+    onLeaveFeedbackKey: 'neutral',
+  },
+  {
+    title: 'Bad',
+    onLeaveFeedbackKey: 'bad',
+  },
+];
+
 export class App extends Component {
   state = {
     good: 0,
@@ -10,7 +25,7 @@ export class App extends Component {
     bad: 0,
   };
 
-  addToStatistics = key => () => {
+  onLeaveFeedback = key => () => {
     this.setState(prevState => ({
       [`${key}`]: prevState[key] + 1,
     }));
@@ -23,9 +38,8 @@ export class App extends Component {
       <Container>
         <StatisticsTitle>Statistics of restaurant "Expresso"</StatisticsTitle>
         <StatisticsInputSection
-          goodAdd={this.addToStatistics('good')}
-          neutralAdd={this.addToStatistics('neutral')}
-          badAdd={this.addToStatistics('bad')}
+          options={options}
+          onLeaveFeedback={this.onLeaveFeedback}
         />
         <StatisticsOutputSection good={good} neutral={neutral} bad={bad} />
       </Container>
