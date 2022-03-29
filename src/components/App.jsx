@@ -27,7 +27,7 @@ export class App extends Component {
 
   onLeaveFeedback = key => () => {
     this.setState(prevState => ({
-      [`${key}`]: prevState[key] + 1,
+      [key]: prevState[key] + 1,
     }));
   };
 
